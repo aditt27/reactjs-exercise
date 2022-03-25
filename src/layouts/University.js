@@ -12,32 +12,24 @@ export class University extends React.Component {
         this.state = {
             univName: '',
             univNameCb: false,
-            univCountry: '',
-            univCountryCb: false,
+            univCountry: 'Indonesia',
+            univCountryCb: true,
             data: [],
             loading: false,
-            firstTime: true
+            firstTime: true,
         }
     }
 
     onChange = (e)=> {
         this.setState({
-            [e.target.name]: e.target.value
+            [e.target.name]: e.target.value,
+            requestChange: true
         })
     }
 
     onChangeCb = (e)=> {
         this.setState({
             [e.target.name]: e.target.checked
-        })
-    }
-
-    componentDidMount() {
-        this.setState({
-            univName: '',
-            univNameCb: false,
-            univCountry: 'Indonesia',
-            univCountryCb: true
         })
     }
 
@@ -55,7 +47,6 @@ export class University extends React.Component {
             univNameCb,
             univCountry,
             univCountryCb,
-            loading
         } = this.state
 
         var params = {}
@@ -80,7 +71,11 @@ export class University extends React.Component {
                             country: item.country
                         })
                     })
-                    this.setState({data, loading: false, firstTime: false})
+                    this.setState({
+                        data, 
+                        loading: false, 
+                        firstTime: false,
+                    })
                 }
             })
 
@@ -95,7 +90,7 @@ export class University extends React.Component {
             univCountryCb,
             data,
             loading,
-            firstTime
+            firstTime,
         } = this.state
 
         const titleStyle = {
@@ -136,9 +131,9 @@ export class University extends React.Component {
         if(!firstTime) {
             bodyResponse = <Table columns={columns} dataSource={data} loading={loading}/>
         } else {
-            bodyResponse = 'Please input your request first.'
+            bodyResponse = <p>Please input your request first.</p>
         }
-        
+
         return(
             <Container>
                 <Breadcrumber crumbs={breadcrumb}/>

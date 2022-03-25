@@ -22,10 +22,6 @@ export const Main = () => {
     )
 };
 
-export const About = () => {
-    return <h1>Blog Articles</h1>;
-};
-
 export const NoPage = () => {
     return <Container>
         <h1 style={{margin: '10px'}}>404</h1>

@@ -1,6 +1,7 @@
 import React from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { About, Main, NoPage } from './layouts/Main';
+import { Main, NoPage } from './layouts/Main';
+import { About } from './layouts/About'
 import { Home } from './layouts/Home';
 import { University } from './layouts/University';
 import { Holiday } from './layouts/Holiday';
